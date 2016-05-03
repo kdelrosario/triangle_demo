@@ -1,0 +1,22 @@
+default: &default
+  host: 127.0.0.1
+  adapter: mysql2
+  encoding: unicode
+  username: username
+  password: password
+  pool: 5
+  encoding: utf8
+
+development:
+  <<: *default
+  database: triangle_demo_development
+
+test:
+  <<: *default
+  database: triangle_demo_test
+
+production:
+  <<: *default
+  database: triangle_demo_production
+  username: base
+  password: <%= ENV['BASE_DATABASE_PASSWORD'] %>
